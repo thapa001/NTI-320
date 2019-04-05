@@ -1,0 +1,26 @@
+#!bin/bash
+min nagios install 
+(this is for the first week of configuration.  We will be compiling from source later in the quarter)
+
+       yum install nagios
+       systemctl enable nagios
+       systemctl start nagios
+       setenforce 0
+       yum install httpd
+       systemctl enable httpd
+       systemctl start httpd
+       yum install nrpe
+       systemctl enable nrpe
+       systemctl start nrpe
+       yum install nagios-plugins-all
+       yum install nagios-plugins-nrpe
+       htpasswd -c /etc/nagios/passwd nagiosadmin #P@ssw0rd1
+       chmod 666 /var/log/nagios/nagios.log 
+
+Further configuration:
+https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
+
+
+verify reads nagios configuration
+
+/usr/sbin/nagios -v /etc/nagios/nagios.cfg
