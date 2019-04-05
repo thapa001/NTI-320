@@ -1,6 +1,6 @@
 #!bin/bash
-min nagios install 
-(this is for the first week of configuration.  We will be compiling from source later in the quarter)
+#min nagios install 
+#(this is for the first week of configuration.  We will be compiling from source later in the quarter)
 
        yum install nagios
        systemctl enable nagios
