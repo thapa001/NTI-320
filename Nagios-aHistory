@@ -21,6 +21,6 @@ Further configuration:
 https://assets.nagios.com/downloads/nagioscore/docs/nagioscore/4/en/monitoring-publicservices.html (Links to an external site.)
 
 
-verify reads nagios configuration
+verify and reads nagios configuration
 
 /usr/sbin/nagios -v /etc/nagios/nagios.cfg
