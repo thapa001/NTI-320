@@ -10,3 +10,4 @@ yum -y install cacti
 yum -y install mariadb-server   
 comment out  line 32 ----> rpm -ql cacti|grep cacti.sql 
 comment line 38 --->
+-----> on cacti_clinet change the internal ip address of your host.
