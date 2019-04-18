@@ -59,7 +59,7 @@ sed -i 's/;date.timezone =/date.timezone = America\/Regina/' /etc/php.ini
 
 systemctl restart httpd.service
 
-#Set up the cacto cron
+#Set up the cacti cron
 sed -i 's/#//g' /etc/cron.d/cacti
 setenforce 0
 systemctl start httpd
