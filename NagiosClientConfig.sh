@@ -5,7 +5,7 @@ wget -O /usr/lib64/nagios/plugins/check_mem.sh https://raw.githubusercontent.com
 chmod +x /usr/lib64/nagios/plugins/check_mem.sh
 systemctl enable nrpe
 systemctl start nrpe
-#Got a make changes on the vim /etc/nagios/nrpe.cfg the original lines looks like below.
+#Got a make changes on the vim /etc/nagios/nrpe.cfg and the original lines looks like below.
 
 #command[check_users]=/usr/lib64/nagios/plugins/check_users $ARG1$
 #command[check_load]=/usr/lib64/nagios/plugins/check_load $ARG1$
