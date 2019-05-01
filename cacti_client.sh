@@ -1,12 +1,13 @@
 #!/bin/bash
 #Install snmp and tools
+#This is part of the web server and it will be added to the end of the scripting
 yum -y install net-snmp net-snmp-utils
 
 #Create a new snmpd.conf
 mv /etc/snmp/snmpd.conf /etc/snmp/snmpd.conf.orig
 touch /etc/snmp/snmpd.conf
 
-#Edit snmpd.conf file /etc/snmp/snmpd.conf - also make sure the network us pointing to your internal network
+#Edit snmpd.conf file /etc/snmp/snmpd.conf and make sure that network pointing to your internal network
 
 echo '# create myuser in mygroup authenticating with 'public' community string and source network 10.150.0.0/24
 com2sec myUser 10.150.0.0/24 public
