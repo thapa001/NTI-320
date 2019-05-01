@@ -1,14 +1,14 @@
 #!/bin/bash
-#Installes packages inluding mariadb, httpd and php and so on
-#The mysql/mariadb client installs with the cacti stack but not the server
-#If we want multiple cacti nodes, consider using the client and connecting to another server
-
+#Install cacti packages
 yum -y install cacti  
+#Install fork of MySQL relational database management system
 yum -y install mariadb-server
+#Cacti runs on php so we need to install php dependencies
 yum -y install php-process php-gd php mod_php
+#Install simple network management protocols
 yum -y install net-snmp net-snmp-utils
 
-#Enabe db, apache and snmp(not cacti yet)
+#Enabe database, apache and snmp(not cacti yet)
 systemctl enable mariadb
 systemctl enable httpd
 systemctl enable snmpd
@@ -19,7 +19,7 @@ systemctl start httpd
 systemctl start snmpd
 
 #Set mysql and mariadb password.Password must be secret ****
-#Make sql script to create a cacti db and grant the cacti user access to it
+#Make sql script to create a cacti database and grant the cacti user access to it
 
 mysqladmin -u root password P@ssw0rd1
 
@@ -27,6 +27,7 @@ mysqladmin -u root password P@ssw0rd1
 
 mysql_tzinfo_to_sql /usr/share/zoneinfo | mysql -u root -pP@ssw0rd1 mysql
 
+#Create cacti user and grant all
 echo "create database cacti;
 GRANT ALL ON cacti.* TO cacti@localhost IDENTIFIED BY 'P@ssw0rd1';    #set this to something better than 'cactipass'
 FLUSH privileges;
@@ -41,11 +42,12 @@ mysql -u root -pP@ssw0rd1 < stuff.sql
 #rpm -ql cacti|grep cacti.sql
 #In this case, the output is /usr/share/doc/cacti-1.0.4/cacti.sql, run that to populate your db
 
+#Set variable for path so it can updates automatically
 mypath=$(rpm -ql cacti|grep cacti.sql)
 mysql cacti < $mypath -u cacti -pP@ssw0rd1
-
 #mysql -u cacti -p cacti < /usr/share/doc/cacti-1.0.4/cacti.sql
-#Open up apache
+#Open up and configure apache
+
 sed -i 's/Require host localhost/Require all granted/' /etc/httpd/conf.d/cacti.conf
 sed -i 's/Allow from localhost/Allow from all all/' /etc/httpd/conf.d/cacti.conf
 
