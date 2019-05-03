@@ -1,4 +1,5 @@
 #!/bin/bash
+#V means remove that matches nagios in the script
 for servername in $(gcloud compute instances list | awk '{print $1}' | sed "1 d" | grep -v nagios-a );  do 
     echo $servername;
     serverip=$( gcloud compute instances list | grep $servername | awk '{print $4}');
