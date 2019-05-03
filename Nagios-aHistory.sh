@@ -14,7 +14,7 @@ systemctl start nrpe
 yum -y install nagios-plugins-all
 yum -y install nagios-plugins-nrpe
 htpasswd -c /etc/nagios/passwd nagiosadmin    #P@ssw0rd1
-chmod 666 /var/log/nagios/nagios.log 
+chmod 775 /var/log/nagios/nagios.log 
 systemctl restart nagios
 echo "define command{
                                 command_name check_nrpe
