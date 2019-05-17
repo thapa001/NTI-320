@@ -1,0 +1,13 @@
+# Update nagios exmaple below: 
+# htpasswd -c /etc/nagios/passwd nagiosadmin #P@ssw0rd1
+# mkdir /etc/nagios/servers
+# chmod 777 /etc/nagios/servers
+# vim /etc/nagios/nagios.cfg
+# systemctl restart nagios
+# uncomment cfg_dir=/etc/nagios/servers on nagios server
+# Update on vim /etc/nagios/objects/commands.cfg 
+# update and install nrpe and run systemctl restart nrpe in all servers, ip address must match nagios server, 
+# ldap and nfs client must match with new server name (if we give new name for the server)
+# server name must matched with initial server name and ip address  in for loop, nrp loop and scp file.
+
+
