@@ -24,3 +24,7 @@ if [ -z "$isokay" ]; then
 else
    echo "All is well and we found your test package: $isokay"   
 fi
+#After scripting vim file we can run these things to check whether it is working or not
+#bash add_yum_repo.sh
+#yum search "helloworld"
+#yum -y install helloworld
