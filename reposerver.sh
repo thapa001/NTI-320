@@ -34,8 +34,7 @@ ln -s  /repos/centos /var/www/html/centos
 #Always copy config files to .bak before editing 
 #Make a copy of our original httpd.conf
 cp /etc/httpd/conf/httpd.conf /etc/httpd/conf/httpd.conf.bak 
-#We can manually vim or run sed lines to run apache
-vim /etc/httpd/conf/httpd.conf
+#We can manually vim /etc/httpd/conf/httpd.conf or run sed lines to run apache.
 #Configure apache 
 sed -i '144i     Options All' /etc/httpd/conf/httpd.conf 
 sed -i '145i    # Disable directory index so that it will index our repos' /etc/httpd/conf/httpd.conf
