@@ -15,6 +15,6 @@ if [ "$status" == "Syntax OK"   ]; then
     exit 1;
 
 else
-   echo "STATUS:graceful-stop"
+   echo "STATUS:Unknown"
    exit 3;
 fi
